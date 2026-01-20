@@ -1,26 +1,15 @@
 
-# VMU Student Assistant - Triển khai & Cài đặt
+# VMU Student Assistant - Fix Deploy
 
-## 🚀 Cách đưa App lên Web nhanh nhất
-1. **Tải toàn bộ code**: Nhấn nút Download trong môi trường này.
-2. **Đưa lên Vercel**:
-   - Truy cập [vercel.com/deploy](https://vercel.com/deploy).
-   - Kéo và thả thư mục đã tải về vào vùng kéo thả.
-3. **Cấu hình API Key**:
-   - Sau khi Deploy xong, vào **Settings > Environment Variables**.
-   - Thêm `API_KEY` với mã Gemini của bạn.
-   - Nhấn **Redeploy** lại bản mới nhất.
+## 🛠 Cách sửa lỗi trên Vercel
+1. **Tải lại code**: Nhấn nút Download bản mới nhất này.
+2. **Xóa Project cũ trên Vercel**: Để tránh cache lỗi, bạn hãy xóa project cũ đi và tạo lại (New Project).
+3. **Upload lại**: Kéo thả thư mục mới vào.
+4. **Cấu hình API Key (QUAN TRỌNG)**:
+   - Vào **Settings > Environment Variables**.
+   - Name: `API_KEY`
+   - Value: (Mã API của bạn)
+   - Nhấn **Save**.
+5. **Redeploy**: Vào tab **Deployments**, nhấn vào nút 3 chấm ở bản deploy lỗi và chọn **Redeploy**.
 
-## 🛠 Giải quyết lỗi/cảnh báo thường gặp
-
-### 1. "npm warn deprecated node-domexception"
-- **Ý nghĩa**: Đây chỉ là cảnh báo rằng một thư viện phụ trợ của Node.js đã cũ.
-- **Cách xử lý**: **BỎ QUA**. Nó không gây ảnh hưởng đến App. Bạn vẫn có thể chạy lệnh `npm install` hoặc `vercel` bình thường.
-
-### 2. App trắng màn hình sau khi deploy
-- Đảm bảo bạn đã thêm thẻ `<script type="module" src="index.tsx"></script>` trong file `index.html`. (Tôi đã cập nhật sẵn trong bản này).
-
-## 📱 Cách cài đặt vào điện thoại
-Mở link web của bạn (ví dụ: `vmu-xxx.vercel.app`) trên điện thoại:
-- **Android**: Nhấn 3 chấm > "Cài đặt ứng dụng".
-- **iOS (iPhone)**: Nhấn nút Chia sẻ > "Thêm vào màn hình chính".
+Lỗi `node-domexception` bạn thấy chỉ là cảnh báo, bản cập nhật này sẽ giúp Vite bỏ qua các cảnh báo đó và Build thành công thư mục `dist`.
